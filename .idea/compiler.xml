@@ -12,9 +12,4 @@
       <entry name="!?*.clj" />
     </wildcardResourcePatterns>
   </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="CharactersDBfx" options="--add-modules=javafx.graphics,javafx.fxml,javafx.controls,javafx.base" />
-    </option>
-  </component>
 </project>

@@ -19,47 +19,39 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.CharacterEntity;
+import model.CharacterEntityDAO;
 
 public class Main extends Application {
 
 
   // database URL, username and password
-  private static final String DATABASE_URL = "jdbc:derby:C:\\Users\\Dan\\Documents\\school\\OraclProduction\\CharactersDBfx\\lib\\Characters";
+  private static final String DATABASE_URL = "jdbc:derby:C:\\Users\\dpbailey4801\\Downloads\\Project-master\\CharactersDBfx\\lib\\Characters";
   private static final String USERNAME = "admin";
   private static final String PASSWORD = "password";
 
 
-  // default query retrieves all data from authors table
+  // default query retrieves all data from characters table
   private static final String DEFAULT_QUERY = "SELECT * FROM Characters ORDER BY playerID";
 
 
-  public LinkedList<dataType> characters = new LinkedList<>();
-
+  public LinkedList<CharacterEntity> characters = new LinkedList<>();
 
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    TableColumn<dataType, Integer> playerID = new TableColumn<>("ID");
-    playerID.setMinWidth(80);
-    playerID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-    TableColumn<dataType, String> charName = new TableColumn<>("Character Name");
-    charName.setMinWidth(80);
-    charName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-    TableColumn<dataType, Integer> charClass = new TableColumn<>("Class");
-    charClass.setMinWidth(80);
-    charClass.setCellValueFactory(new PropertyValueFactory<>("Class"));
 
 
-   // populateData();
+    // populateData();
 
-    TableView<dataType> characterList = new TableView<>();
+    TableView<CharacterEntity> characterList = new TableView<>();
 
-   characterList.setItems(populateData());
+    characterList.setItems(CharacterEntityDAO.searchCharacterEntities());
 
-    //ComboBox<dataType> convertListTypes = new ComboBox<dataType>(oList);
+    //ComboBox<CharacterEntity> convertListTypes = new ComboBox<CharacterEntity>(oList);
 //    characterList.setItems(oList);
-    //characterList.set
-    Parent root = FXMLLoader.load(getClass().getResource("CharacterDB.fxml"));
+
+    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterDB.fxml"));
     primaryStage.setTitle("Hello World");
     primaryStage.setScene(new Scene(root, 700, 575));
     primaryStage.show();
@@ -67,87 +59,46 @@ public class Main extends Application {
   }
 
   //-----------
-  public class dataType {
 
-    private IntegerProperty playerID;
-
-    public void setPlayerID(int value) {
-      idProperty().set(value);
-    }
-
-    public IntegerProperty idProperty() {
-      if (playerID == null) {
-        playerID = new SimpleIntegerProperty(this, "ID");
-      }
-      return playerID;
-    }
-
-    private StringProperty characterName;
-
-    public void setCharacterName(String value) {
-      characterNameProperty().set(value);
-    }
-
-    public StringProperty characterNameProperty() {
-      if (characterName == null) {
-        characterName = new SimpleStringProperty(this, "name");
-
-      }
-      return characterName;
-    }
-    public dataType(){
-      setPlayerID(1);
-    }
-    private StringProperty className;
-
-    public void setClass(String value) {
-      classProperty().set(value);
-    }
-
-    public StringProperty classProperty() {
-      if (className == null) {
-        className = new SimpleStringProperty(this, "ckass");
-
-      }
-      return className;
-    }
-
-  }
 
   //------------
+/*
 
-  public ObservableList populateData() throws SQLException {
+this is all just a lot of test code
+
+
+  public ObservableList<CharacterEntity> populateData() {
 
     // characters = FXCollections.observableArrayList();
-    TableView<dataType> characterList = new TableView<>();
-    ObservableList<dataType> observableList = FXCollections.observableArrayList();
+    TableView<CharacterEntity> characterList = new TableView<>();
 
-dataType rowNum = new dataType();
-    rowNum.setPlayerID(1);
-    characterList.setItems(observableList);
+    CharacterEntity rowNum = new CharacterEntity();
+    rowNum.setPlayerID(0);
+    ObservableList<CharacterEntity> observableList = FXCollections.observableArrayList(rowNum);
+
+    //characterList.setItems(observableList);
     try {
 
       Connection characterDB = DriverManager.getConnection(DATABASE_URL, "admin", "password");
-
       String sortTable = "SELECT * FROM Characters ORDER BY playerID";
       ResultSet characterColumn = characterDB.createStatement().executeQuery(sortTable);
+
       int i = 1;
 
       while (characterColumn.next()) {
 
-
         int ID = characterColumn.getInt(1);
         String Name = characterColumn.getString(2);
         String charC = characterColumn.getString(3);
-
-
-        rowNum.setPlayerID(ID);
+        System.out.println(ID);
+       rowNum.setPlayerID(ID);
 
         rowNum.setCharacterName(Name);
 
-        rowNum.setClass(charC);
-        observableList.set(i,rowNum );
+        rowNum.setCharClass(charC);
+       observableList.set(i, rowNum);
         i++;
+
       }
 
     } catch (Exception e) {
@@ -155,10 +106,9 @@ dataType rowNum = new dataType();
       System.out.println("Couldn't populate from database");
     }
 
-
     return observableList;
   }
-
+*/
   public static void main(String[] args) {
 
     launch(args);

@@ -6,11 +6,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
 
@@ -56,20 +58,22 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <TableView layoutX="253.0" prefHeight="375.0" prefWidth="388.0">
+        <TableView fx:id="CharacterEntityTableView" layoutX="162.0" prefHeight="375.0" prefWidth="479.0">
               <columns>
-                <TableColumn id="playerIDCol" prefWidth="75.0" text="playerID" />
-                <TableColumn id="CharacterCol" prefWidth="75.0" text="Character" />
-                  <TableColumn id="ClassCol" prefWidth="75.0" text="Class" />
+                <TableColumn id="playerIDCol" fx:id="playerID" prefWidth="119.0" text="playerID" />
+                <TableColumn id="CharacterCol" fx:id="charName" prefWidth="119.0" text="charName" />
+                <TableColumn id="ClassCol" fx:id="charClass" prefWidth="119.0" text="charClass" />
               </columns>
             </TableView>
-            <Button layoutX="190.0" layoutY="2.0" mnemonicParsing="false" text="Populate" />
+            <Button layoutX="76.0" layoutY="2.0" mnemonicParsing="false" onAction="#populateCharacterEntities" prefHeight="25.0" prefWidth="67.0" text="Populate" />
+            <TextField fx:id="searchTextField" layoutX="14.0" layoutY="87.0" prefHeight="25.0" prefWidth="108.0" />
+            <Button layoutX="14.0" layoutY="112.0" mnemonicParsing="false" onAction="#deleteCharacterEntity" text="Delete" />
+            <Button layoutX="68.0" layoutY="112.0" mnemonicParsing="false" onAction="#searchCharacterEntity" text="Search" />
+            <Button fx:id="insertData" layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#insertCharacter" text="Button" />
+            <Slider layoutX="24.0" layoutY="256.0" />
+            <Label layoutX="3.0" layoutY="232.0" prefHeight="17.0" prefWidth="154.0" text="How much fun you're having" />
       </children>
     </AnchorPane>
+      <TextArea id="textArea" fx:id="textArea" prefHeight="0.0" prefWidth="154.0" promptText="Text Area" />
   </children>
 </VBox>
