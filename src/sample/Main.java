@@ -46,7 +46,7 @@ public class Main extends Application {
     characterList.setItems(CharacterEntityDAO.searchCharacterEntities());
 
     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterDB.fxml"));
-    primaryStage.setTitle("Hello World");
+    primaryStage.setTitle("Characters Database");
     primaryStage.setScene(new Scene(root, 700, 575));
     primaryStage.show();
 
