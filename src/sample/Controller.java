@@ -74,7 +74,7 @@ public class Controller extends Main implements Initializable {
       textArea.setText("Character inserted! \n");
       searchCharacterEntities(new ActionEvent());
     } catch (SQLException e) {
-      // resultArea.setText("Problem occurred while inserting character " + e);
+       textArea.setText("Problem occurred while inserting character " + e);
       throw e;
     }
   }
