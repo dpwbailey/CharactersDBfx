@@ -26,7 +26,8 @@ public class Main extends Application {
 
 
   // database URL, username and password
-  private static final String DATABASE_URL = "jdbc:derby:C:\\Users\\dpbailey4801\\Downloads\\Project-master\\CharactersDBfx\\lib\\Characters";
+  private static final String DATABASE_URL =
+      "jdbc:derby:C:\\Users\\dpbailey4801\\Downloads\\Project-master\\CharactersDBfx\\lib\\Characters";
   private static final String USERNAME = "admin";
   private static final String PASSWORD = "password";
 
@@ -43,9 +44,6 @@ public class Main extends Application {
     TableView<CharacterEntity> characterList = new TableView<>();
 
     characterList.setItems(CharacterEntityDAO.searchCharacterEntities());
-
-    //ComboBox<CharacterEntity> convertListTypes = new ComboBox<CharacterEntity>(oList);
-//    characterList.setItems(oList);
 
     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterDB.fxml"));
     primaryStage.setTitle("Hello World");
