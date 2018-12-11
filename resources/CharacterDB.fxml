@@ -69,7 +69,7 @@
             <TextField fx:id="searchTextField" layoutX="14.0" layoutY="87.0" prefHeight="25.0" prefWidth="108.0" />
             <Button layoutX="14.0" layoutY="112.0" mnemonicParsing="false" onAction="#deleteCharacterEntity" text="Delete" />
             <Button layoutX="68.0" layoutY="112.0" mnemonicParsing="false" onAction="#searchCharacterEntity" text="Search" />
-            <Button fx:id="insertData" layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#insertCharacter" text="Button" />
+            <Button fx:id="insertData" layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#insertCharacter" text="Insert" />
             <Slider layoutX="24.0" layoutY="256.0" />
             <Label layoutX="3.0" layoutY="232.0" prefHeight="17.0" prefWidth="154.0" text="How much fun you're having" />
       </children>
