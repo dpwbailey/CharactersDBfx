@@ -7,4 +7,4 @@ Based on code from Professor Vanselow
 Demonstration below
 
 
-![] (tdTTU7WF4Y.gif)
+![] tdTTU7WF4Y.gif
