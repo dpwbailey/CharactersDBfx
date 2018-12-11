@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Mon Dec 10 23:31:06 EST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-9b88-644c-00001bf39b40 
+Mon Dec 10 23:33:28 EST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-9b8a-9004-00001bf30d78 
 on database directory C:\Users\Dan\Documents\school\OraclProduction\CharactersDBfx\lib\Characters with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/Dan/Documents/school/OraclProduction/CharactersDBfx/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -10,3 +10,4 @@ os.name=Windows 10
 os.arch=amd64
 os.version=10.0
 derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
