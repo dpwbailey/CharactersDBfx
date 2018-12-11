@@ -5,9 +5,7 @@ import com.sun.rowset.CachedRowSetImpl;
 import java.sql.*;
 
 /**
- * Prof. Vanselow
- * Modified code from ONUR BASKIRT.
- * https://www.swtestacademy.com/database-operations-javafx/
+ * Prof. Vanselow Modified code from ONUR BASKIRT. https://www.swtestacademy.com/database-operations-javafx/
  */
 public class DBUtil {
   //Declare JDBC Driver

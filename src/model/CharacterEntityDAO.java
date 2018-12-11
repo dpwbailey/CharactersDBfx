@@ -12,27 +12,28 @@ public class CharacterEntityDAO {
       throws SQLException, ClassNotFoundException {
     CharacterEntity characterEntity;
 
+    //Declare a SELECT statement
+    String selectStmt = "SELECT * FROM Characters WHERE charName = '" + charName + "'";
 
-      //Declare a SELECT statement
-      String selectStmt = "SELECT * FROM Characters WHERE charName = '" + charName +"'";
+    //Execute SELECT statement
+    try {
+      //Get ResultSet from dbExecuteQuery method
+      ResultSet rsCharacterEntity = DBUtil.dbExecuteQuery(selectStmt);
 
-      //Execute SELECT statement
-      try {
-        //Get ResultSet from dbExecuteQuery method
-        ResultSet rsCharacterEntity = DBUtil.dbExecuteQuery(selectStmt);
+      //Send ResultSet to the getAuthorFromResultSet method and get author object
+      characterEntity = getCharacterEntityFromResultSet(rsCharacterEntity);
 
-        //Send ResultSet to the getAuthorFromResultSet method and get author object
-        characterEntity = getCharacterEntityFromResultSet(rsCharacterEntity);
-
-        //Return employee object
-        return characterEntity;
-      } catch (SQLException e) {
-        System.out
-            .println("While searching a player with name : " + charName + ", an error occurred: " + e);
-        //Return exception
-        throw e;
-      }
+      //Return employee object
+      return characterEntity;
+    } catch (SQLException e) {
+      System.out
+          .println(
+              "While searching a player with name : " + charName + ", an error occurred: " + e);
+      //Return exception
+      throw e;
     }
+  }
+
   //Use ResultSet from DB as parameter and set CharacterEntity Object's attributes and return author object.
   private static CharacterEntity getCharacterEntityFromResultSet(ResultSet rs) throws SQLException {
     CharacterEntity characterEntity = null;
@@ -44,10 +45,12 @@ public class CharacterEntityDAO {
     }
     return characterEntity;
   }
+
   //*******************************
   //SELECT Characters
   //*******************************
-  public static ObservableList<CharacterEntity> searchCharacterEntities() throws SQLException, ClassNotFoundException {
+  public static ObservableList<CharacterEntity> searchCharacterEntities()
+      throws SQLException, ClassNotFoundException {
     //Declare a SELECT statement
     String selectStmt = "SELECT * FROM Characters";
 
@@ -67,6 +70,7 @@ public class CharacterEntityDAO {
       throw e;
     }
   }
+
   //returns the list of characters
   public static ObservableList<CharacterEntity> getCharacterEntityList(ResultSet rs)
       throws SQLException, ClassNotFoundException {
@@ -79,17 +83,18 @@ public class CharacterEntityDAO {
       characterEntity.setCharacterName(rs.getString("charName"));
       characterEntity.setCharClass(rs.getString("Class"));
 
-
       characterList.add(characterEntity);
     }
 
     return characterList;
   }
+
   //*************************************
   //DELETE a character
   // OR DELETE all characters of a player with a certain ID
   //*************************************
-  public static void deleteCharacterEntityWithName(String charName) throws SQLException, ClassNotFoundException {
+  public static void deleteCharacterEntityWithName(String charName)
+      throws SQLException, ClassNotFoundException {
     //Declare a DELETE statement
     String updateStmt =
         "DELETE FROM Characters " +
@@ -103,6 +108,7 @@ public class CharacterEntityDAO {
       throw e;
     }
   }
+
   //*************************************
   //INSERT a generic character; the multiple fields for a character entity
   // mean that entering in your own data is a hassle. this is basically to demonstrate

@@ -101,7 +101,7 @@ public class Controller extends Main implements Initializable {
       throws SQLException, ClassNotFoundException {
     try {
       //Get all Character Entity information
-      ObservableList<CharacterEntity> characterData = CharacterEntityDAO.searchCharacterEntities();
+      CharacterEntityDAO.searchCharacterEntities();
       //Populate Character Entities on TableView
       // populateCharacterEntities(characterData);
     } catch (SQLException e) {
@@ -146,11 +146,13 @@ public class Controller extends Main implements Initializable {
       throws SQLException, ClassNotFoundException {
     try {
       CharacterEntityDAO.deleteCharacterEntityWithName(searchTextField.getText());
-      textArea.setText("Character deleted! Character Name was: " + searchTextField.getText() + "\n");
+      textArea
+          .setText("Character deleted! Character Name was: " + searchTextField.getText() + "\n");
       searchCharacterEntities(new ActionEvent());
     } catch (SQLException e) {
       textArea.setText(
-          "Enter the name of the character to delete. \nProblem occurred while deleting character " + e);
+          "Enter the name of the character to delete. \nProblem occurred while deleting character "
+              + e);
       throw e;
     }
   }

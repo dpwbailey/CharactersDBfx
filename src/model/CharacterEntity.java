@@ -18,13 +18,14 @@ public class CharacterEntity {
     }
     return playerID;
   }
+
   public void setPlayerID(int value) {
     idProperty().set(value);
   }
-  public int getPlayerID(){
+
+  public int getPlayerID() {
     return playerID.get();
   }
-
 
 
   public StringProperty characterNameProperty() {
@@ -34,10 +35,12 @@ public class CharacterEntity {
     }
     return characterName;
   }
+
   public void setCharacterName(String value) {
     characterNameProperty().set(value);
   }
-  public String getCharacterName(){
+
+  public String getCharacterName() {
     return characterName.get();
   }
 
@@ -57,10 +60,12 @@ public class CharacterEntity {
     }
     return className;
   }
+
   public void setCharClass(String value) {
     classProperty().set(value);
   }
-  public String getClassName(){
+
+  public String getClassName() {
     return className.get();
   }
 

@@ -35,12 +35,8 @@ public class Main extends Application {
   private static final String DEFAULT_QUERY = "SELECT * FROM Characters ORDER BY playerID";
 
 
-  public LinkedList<CharacterEntity> characters = new LinkedList<>();
-
-
   @Override
   public void start(Stage primaryStage) throws Exception {
-
 
     // populateData();
 
